@@ -15,6 +15,18 @@ public class User {
 
     private UserSex sex;
 
+    public User(Long id, String name, String lastName, UserStatus status, String userPhoneNumber, UserSex sex) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.status = status;
+        this.userPhoneNumber = userPhoneNumber;
+        this.sex = sex;
+    }
+
+    public User() {
+    }
+
     public String getLastName() {
         return lastName;
     }
@@ -31,19 +43,6 @@ public class User {
         this.status = status;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 
     public Long getId() {
         return id;
@@ -76,20 +75,30 @@ public class User {
 
     public void setSex(UserSex sex) {
         this.sex = sex;
+    }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", status=" + status +
+                ", userPhoneNumber='" + userPhoneNumber + '\'' +
+                ", sex=" + sex +
+                '}';
+    }
 
-//        Конструкторы
-        User AlexUser = new User();
-        AlexUser.id = 712712300l;
-        AlexUser.sex = UserSex.MALE;
-        AlexUser.userPhoneNumber = "+132341141";
-        AlexUser.status = UserStatus.BLOCKED;
-        AlexUser.name="Adolf ";
-        AlexUser.lastName="Hitler";
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id);
+    }
 
-
-        User IgorUser = new User();
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
