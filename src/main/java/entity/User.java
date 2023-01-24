@@ -3,6 +3,7 @@ package entity;
 import java.util.Objects;
 
 public class User {
+
     private Long id;
 
     private String name;
@@ -42,7 +43,6 @@ public class User {
     public void setStatus(UserStatus status) {
         this.status = status;
     }
-
 
     public Long getId() {
         return id;
@@ -100,5 +100,6 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+
     }
 }
